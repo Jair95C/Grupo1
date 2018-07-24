@@ -22,7 +22,7 @@ class Integrante{
 		string getNombre(){
 			return nombre;
 		}
-		string Apellidos(){
+		string getApellidos(){
 			return apellidos;
 		}
 		int getEdad(){
