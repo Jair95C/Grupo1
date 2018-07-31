@@ -1,49 +1,84 @@
 using namespace std;
-class Futbolista: public Integrante{
-	string dorsal,desmarcacion;
+
+class Futbolista:public Integrante{
+	string dolorsal, demarcacion;
 	
 	public:
-		Futbolista(){
+		Futbolista(){}
+		Futbolista(int id, string nombre, string apellidos, int edad, string dolorsal, string demarcacion):Integrante(id, nombre,apellidos,edad){
+			this->dolorsal=dolorsal;
+			this->demarcacion=demarcacion;
 		}
-		Futbolista(string dorsal, string desmarcacion):Integrante(id,nombre,apellidos,edad){
-			this->dorsal=dorsal;
-			this->desmarcacion=desmacacion;
+		string getDolorsal(){return dolorsal;}
+		void setDolorsal(string dolorsal){this->dolorsal=dolorsal;}
+		
+		string getDemarcacion(){return demarcacion;}
+		void setDemarcacion(string demarcacion){this->demarcacion=demarcacion;}
+		
+		void leer(){
+			//int edad;
+			//string nombre,apellidos,id;
+			cout << "\nIngreso de Futbolista";
+			cout <<"\nIdentidad : "; cin>>id;
+			cout <<"\nNombres : "; cin >>nombre;
+			cout <<"\nApellidos : "; cin>>apellido;
+			cout << "\nEdad : "; cin >>edad;
+			cout << "\nDolorsal : "; cin >>dolorsal;
+			cout << "\nDemarcacion : "; cin >>demarcacion;
+			/*this->setId(id);
+			this->setNombre(nombre);
+			this->setApellidos(apellido);
+			this->setEdad(edad);*/
 		}
-		string getDorsal(){return dorsal;}
-		string getDorsal(){return desmarcacion;}
 		
-		void setDorsal(string dorsal){this->dorsal=dorsal;}
-		void setDesmarcacion(string desmarcacion){this->desmarcacion=desmarcacion;}
-		
-		void ingresar();
-		void imprimir ();
-	
+		void imprimir(){
+			cout << "\nDATOS FUTBOLISTA ";
+			cout <<"\nIdentidad : "<<id;
+			cout <<"\nNombres : "<<nombre;
+			cout <<"\nApellidos : "<<apellido;
+			cout << "\nEdad : "<<edad;
+			cout << "\nDolorsal : "<<dolorsal;
+			cout << "\nDemarcacion : "<<demarcacion;
+			/*cout << "\nDatos de Titular ";
+			cout <<"\nIdentidad : "<< this->getId();
+			cout <<"\nNombre : "<< this->getNombre();
+			cout <<"\nApellido : "<< this->getApellidos();
+			cout <<"\nEdad : "<< this->getEdad();
+			cout << "\nDolorsal : " << dolorsal;*/
+			//cout << "\nDemarcacion : " << demarcacion;
+		}
 };
-
-void Futbolista::ingresar(){
-	
-	string nombre,apellidos,edad,id;
-	cout<<"--Ingrese los Datos del futbolista--"<<endl;
-	cout<<"--Id--"; cin>>id;
-	cout<<"--Nombre--"; cin>>nombre;
-	cout<<"--Apellido--"; cin>>apellidos;
-	cout<<"--Edad--"; cin>>edad;
-	cout<<"--Dorsal--"; cin>>dorsal;
-	cout<<"--Desmarcacion--"; cin>>desmarcacion;
-	
-	this->setId(string id);
-	this->setNombre(string nombre);
-	this->setApellidos(string apellidos);
-	this->setEdad(int edad);
-}
-
-void Futbolista::imprimir(){
-	cout<<"--Datos del futbolista--"<<endl;
-	cout<<"--Id--"<<this->getId()<<endl;
-	cout<<"--Nombre--"<<this->getNombre()<<endl;
-	cout<<"--Apellido--"this->getApellidos()<<endl;
-	cout<<"--Edad--"this->getEdad()<<endl;
-	cout<<"--Dorsal--"<<dorsal<<endl;
-	cout<<"--Desmarcacion--"<<desmarcacion<<endl;
-	
-}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

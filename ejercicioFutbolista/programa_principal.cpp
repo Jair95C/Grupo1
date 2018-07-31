@@ -1,88 +1,225 @@
 #include <iostream>
 #include <list>
-#include "Integrante.h"
+#include "Entrenador.h"
 #include "Futbolista.h"
 #include "Masajista.h"
-#include "Federacion.h"
 
 
-using namespace std;
-
-int menu(){
-system("cls");
-cout<<"**Menu**\n";
-cout<<"1.-Ingresar nuevo\n";
-cout<<"2.-Imprimir\n"; 
-cout<<"3.-Eliminar\n"; 
-cout<<"99.-Salir\n";
-cout<<"Escoja la opcion:";
-int op;
-cin>>op;
-return op;
+int menu (){
+	int op; 
+	
+	system ("cls");
+		system ("Color A");
+	cout << "MENU PRINCIPAL"<<endl;
+	cout << "\n 1. Ingresar";
+	cout << "\n 2. Listar";
+	cout << "\n 3. Eliminar";
+	cout << "\n 4. Salir";
+	cout << "\nEscoja la opcion"<<endl;
+	cin>>op; 
+	
+	return op; 
 }
 
-//..............
-void imprimir(list<Integrante *> &integrantes){
-for(list<Integrante *>::iterator indice= integrantes.begin();
-indice!=integrantes.end(); ++indice
-){
-(*indice)->imprimir();
-} 
+void IngresarM (list<Masajista *> &lista){
+
+	Masajista *objM = new Masajista();
+	objM->leer();
+	lista.push_back(objM);
 }
-//..................
-void nuevo(list<Integrante *> &lista){
-Integrante * objInt=new Integrante();
-objInt->leer();
-lista.push_back(objInt);
+
+void IngresarE (list<Entrenador *> &lista){
+
+    Entrenador *objE = new Entrenador();
+	objE->leer();
+	lista.push_back(objE);
 }
-//.................................
-Integrante* buscar(list<Integrante *> lista, int ideBuscar){   //cod buscar =ide buscar
-Integrante * ideEncontrado=NULL;
-list<Integrante*>::iterator pos;
-pos=lista.begin();                        //depEncontrado= int ideEncontrado
-while(pos!=lista.end() && ideEncontrado==NULL){
-if((*pos)->getId()==ideBuscar ){
-ideEncontrado=(*pos);
+void IngresarF(list<Futbolista *> &lista){
+
+	Futbolista *objF = new Futbolista();
+	objF->leer();
+	lista.push_back(objF);
 }
-pos++;
+
+void imprimirE(list<Entrenador *> &entrenador){
+	
+	for (list<Entrenador *>::iterator indice = entrenador.begin();indice!=entrenador.end();++indice){
+		(*indice)->imprimir();
+		system ("pause");
+	}
+	
 }
-return ideEncontrado;
+
+void imprimirM(list<Masajista *> &masajista){
+	
+	for (list<Masajista *>::iterator indice = masajista.begin();indice!=masajista.end();++indice){
+		(*indice)->imprimir();
+		system ("pause");
+	}
+	
 }
-/////////////////////////////////////
+
+void imprimirF(list<Futbolista *> &futbolista){
+	
+	for (list<Futbolista *>::iterator indice = futbolista.begin();indice!=futbolista.end();++indice){
+		(*indice)->imprimir();
+		system ("pause");
+	}
+	
+}
+
+Futbolista* buscarf(list<Futbolista *> lista, int codBuscar){
+	Futbolista * depfut=NULL;
+	list<Futbolista*>::iterator pos;
+	pos=lista.begin();
+	while(pos!=lista.end() && depfut==NULL){
+	if((*pos)->getCodigo()==codBuscar ){
+	depfut=(*pos);
+	}
+	pos++;
+	}
+	return depfut;
+}
+
+
+Entrenador* buscare(list<Entrenador *> lista, int codBuscar){
+	Entrenador * depe=NULL;
+	list<Entrenador *>::iterator pos;
+	pos=lista.begin();
+	while(pos!=lista.end() && depe==NULL){
+	if((*pos)->getCodigo()==codBuscar){
+	depe=(*pos);
+	}
+	pos++;
+	}
+	return depe;
+}
+
+Masajista* buscarm(list<Masajista *> lista, int codBuscar){
+	Masajista * depm=NULL;
+	list<Masajista*>::iterator pos;
+	pos=lista.begin();
+	while(pos!=lista.end() && depm==NULL){
+	if((*pos)->getCodigo()==codBuscar){
+	depm=(*pos);
+	}
+	pos++;
+	}
+	return depm;
+}
+
 
 int main(int argc, char** argv) {
-list<Integrante *> integrantes; 
-int op=0;
-string ideBuscar;
-Integrante* ideBuscar=NULL;
-      do{
-         op=menu();
-              switch(op){
-                   case 1: 
-                      nuevo(integrantes);
-                       break;
-                    case 2:
-                     imprimir(integrantes);
-                       break; 
-                   case 3: 
-                       cout<<"Ingrese el la identificacion a eliminar:";
-                        cin>>ideBuscar;
-                        ideBuscar=buscar(integrantes,ideBuscar);
-                          if(ideBuscar!=NULL){ 
-                             integrantes.remove(ideBuscar);
-                              cout<<"\nIntegrante  Eliminado!!\n";
-                           }else{
-                           cout<<"\nIntegrante NO encontrado!!\n";
-                               } 
-                             break; 
-                   case 99:
-                        cout<<"Hasta pronto!!";
-						break; 
-						default:
-							cout<<"Opcion desconocida!!";
-                           break; 
-                          }
-                                system("pause"); 
-                         }while(op!=99); 
-        return 0;
+	
+	int op;
+	int op1;
+	int e;
+	int codb;
+	
+	list<Masajista *>masajista;
+	list<Entrenador *>entrenador;
+	list<Futbolista *>futbolista;
+	
+	do {
+		op=menu();
+		switch(op){
+			case 1: 
+				cout << "\n 1. Futbolista   ";
+				cout << "\n  2.Entrenador  ";
+				cout << "\n  3.Masajista";
+				cin>>op1;
+				if (op1==1)
+				IngresarF (futbolista);
+				if (op1==2)
+				IngresarE (entrenador);
+				if (op1==3)
+				IngresarM (masajista);
+			break;
+			
+			case 2:
+				 imprimirE(entrenador);
+				 imprimirM(masajista);
+				 imprimirF(futbolista);
+			break;
+			
+			case 3:
+				cout << "\n 1. Futbolista  2.Entrenador  3. Masajista";
+				cin>>op1; 
+				if (op1==1){
+					Futbolista *bfut=NULL;
+					cout << "Ingrese el codigo a buscar";
+					cin>>codb;
+					bfut=buscarf(futbolista,codb);
+					if (bfut==NULL){
+						
+						cout<< "\n Futbolista no encontrado";
+						system("pause");
+					}else {
+						bfut->imprimir();
+						system("pause");
+						cout << "\n Esta seguro que desea eliminar: 1.Si  2.No"; 
+						cin>>e;
+						if (e==1){
+							futbolista.remove(bfut);
+							cout << "\n Futblista eliminado";
+						}else 
+							cout << "\n Futbolista no eliminado";
+					}
+				}
+				
+				if (op1==2){
+					Entrenador *bfue=NULL;
+					cout << "Ingrese el codigo a buscar";
+					cin>>codb;
+					bfue=buscare(entrenador,codb);
+					if (bfue==NULL){
+						
+						cout<< "\n Futbolista no encontrado";
+						system("pause");
+					}else {
+						bfue->imprimir();
+						system("\npause");
+						cout << "\n Esta seguro que desea eliminar: 1.Si  2.No"; 
+						cin>>e;
+						if (e==1){
+							entrenador.remove(bfue);
+							cout << "\n Futblista eliminado";
+						}else 
+							cout << "\n Futbolista no eliminado";
+					}
+				}
+		
+				if (op1==3){
+					Masajista *bMas=NULL;
+					cout << "Ingrese el codigo a buscar";
+					cin>>codb;
+					bMas=buscarm(masajista,codb);
+					if(bMas==NULL){
+					
+						cout << "\n Masajista no encontrado"<<endl; 
+						system("pause");
+					}else{
+						bMas->imprimir();
+						cout << "\n Esta seguro que desea eliminar: 1.Si  2.No"; 
+						cin>>e;
+						if (e==1){
+							masajista.remove(bMas);
+							cout << "\n Masajista eliminado";
+						}else 
+							cout << "\n Masajista no eliminado";
+					}
+					
+				}
+				
+				
+			break;
+			
+			
+			
+		}
+	}while (op!=4);
+	
+	
+	
+	return 0;
 }

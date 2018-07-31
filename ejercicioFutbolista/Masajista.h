@@ -1,45 +1,53 @@
 using namespace std;
-class Masajista: public Integrante{
-	string titulacion,aniosExperiencia;
+
+class Masajista:public Integrante{
+	string titulacion, anios_experiencia;
 	
 	public:
-		Masajista(){
-		}
-		Masajista(string titulacion, string aniosExperiencia):Integrante(id, nombre,apellidos,edad){
+		Masajista(){}
+		Masajista(int id, string nombre, string apellidos, int edad, string titulacion, string anios_experiencia):Integrante(id, nombre,apellidos,edad){
 			this->titulacion=titulacion;
-			this->aniosExperiencia=aniosExperiencia;
+			this->anios_experiencia=anios_experiencia;
 		}
 		string getTitulacion(){return titulacion;}
-		string getAniosExperiencia(){return aniosExperiencia;}
-		
 		void setTitulacion(string titulacion){this->titulacion=titulacion;}
-		void setAniosExperiencia(string aniosExperiencia){this->aniosExperiencia=aniosExperiencia;}
 		
-		void ingresar(){
-			string id,nombre,apellidos;
-			int edad;
-			cout<<"Ingrese los datos del Masajista"<<endl;
-			cout<<"Id:";cin>>id;
-			cout<<"Nombre:";cin>>nombre;
-			cout<<"Apellido:";cin>>apellidos;
-			cout<<"Edad:";cin>>edad;
-			cout<<"Titulacion:";cin>>titulacion;
-			cout<<"Anios de experiencia:";cin>>aniosExperiencia;
-			this->setId(id);
+		string getAnios_experiencia(){return anios_experiencia;}
+		void setAnios_experiencia(string anios_experiencia){this->anios_experiencia=anios_experiencia;}
+		
+		void leer(){
+			//int edad;
+			//string nombre,apellidos,id;
+			cout << "\nIngreso de Masajista ";
+			cout <<"\nIdentidad : "; cin>>id;
+			cout <<"\nNombres : "; cin >>nombre;
+			cout <<"\nApellidos : "; cin>>apellido;
+			cout << "\nEdad : "; cin >>edad;
+			cout << "\nTitulacion : "; cin >> titulacion;
+			cout << "\nAnios de Experiencia : "; cin >> anios_experiencia;
+			/*this->setId(id);
 			this->setNombre(nombre);
-			this->setApellidos(apellidos);
-			this->setEdad(edad);
-
+			this->setApellidos(apellido);
+			this->setEdad(edad);*/
 		}
+		
 		void imprimir(){
-			cout<<"Datos del masajista"<<endl;
-			cout<<"ID:"<<this->getId()<<endl;
-			cout<<"Nombre:"<<this->getNombre()<<endl;
-			cout<<"Apellido:"<<this->getApellidos()<<endl;
-			cout<<"Edad:"<<this->getEdad()<<endl;
-			cout<<"Titulacion:"<<titulacion<<endl;
-			cout<<"Anios de experiencia:"<<aniosExperiencia<<endl;			
+			
+			cout << "\nDatos de Masajista";
+			cout << "\nIngreso de Titular ";
+			cout <<"\nIdentidad : "<<id;
+			cout <<"\nNombres : "<<nombre;
+			cout <<"\nApellidos : "<<apellido;
+			cout << "\nEdad : "<<edad;
+			cout << "\nTitulacion : " << titulacion;
+			cout << "\nAnios de Experiencia : " << anios_experiencia;
+			
+			/*cout << "\nDatos de Titular ";
+			cout <<"\nIdentidad : "<< this->getId();
+			cout <<"\nNombre : "<< this->getNombre();
+			cout <<"\nApellido : "<< this->getApellidos();
+			cout <<"\nEdad : "<< this->getEdad();
+			cout << "\nTitulacion : " << titulacion;
+			cout << "\nAnios de Experiencia : " << anios_experiencia;*/
 		}
 };
-
-

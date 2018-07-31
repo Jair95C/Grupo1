@@ -101,7 +101,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=D:\grupo3-\programa_principal.cpp
+FileName=programa_principal.cpp
 CompileCpp=1
 Folder=
 Compile=1

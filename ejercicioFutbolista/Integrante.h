@@ -1,48 +1,24 @@
 using namespace std;
 
 class Integrante{
-	protected.
-	string id;
-	string nombre;
-	string apellidos;
-	int edad;
+	protected:
+	int id; 
+	string nombre; 
+	string apellido; 
+	int edad; 
+	
 	public:
-		Integrante(){
-		}
-		Integrante(string id, string nombre, string apellidos, int edad){
-			this->id=id;
-			this->nombre=nombre;
-			this->apellidos=apellidos;
-			this->edad=edad;
-		}
-		//Metodos set y get
-		string getId(){
-			return id;
-		}
-		string getNombre(){
-			return nombre;
-		}
-		string getApellidos(){
-			return apellidos;
-		}
-		int getEdad(){
-			return edad;
-		}
-		 
-		void setId(string id){
-			this->id=id;
-		}
-		void setNombre(string nombre){
-			this->nombre=nombre;
-		}
-		void setApellidos(string apellidos){
-			this->apellidos=apellidos;
-		}
-		void setEdad(int edad){
-			this->edad=edad;
-		}
-		//operacionesd
-		virtual void leer()=0;
-		virtual void imprimir()=0;
+	Integrante (){}
+	Integrante (int id, string nombre, string apellido, int edad){
+		this->id=id;
+		this->nombre=nombre;
+		this->apellido=apellido;
+		this->edad=edad;
+	}
+	int getCodigo(){
+		return id;
+	}
+	
+	virtual void leer ()=0;
+	virtual void imprimir()=0;
 };
-
